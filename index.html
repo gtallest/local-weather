@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Basic Local Weather App - Marc D. Wong - Free Code Camp</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+  <meta http-equiv="Content-Security-Policy" content="default-src *; style-src 'self' http://* 'unsafe-inline'; script-src 'self' http://* 'unsafe-inline' 'unsafe-eval'" />
+  <link href="https://fonts.googleapis.com/css?family=Catamaran" rel="stylesheet">
+  <link rel="stylesheet" href="css/local-weather.css">
+
+</head>
+<body>
+
+<div class="container-fluid">
+<div id="header-text">Basic Weather App</div>
+<div id="squares" class="row">
+
+  <div id="location-square" class="col-md-3 weather-square">Location:
+    <div id="city"></div>
+    <div id="latitude"></div>
+    <div id="longitude"></div>
+    <div id="first-stripe"></div>
+    <div id="second-stripe"></div>
+    <div id="third-stripe"></div>
+  </div>
+  <div id="temp-square" class="col-md-4 col-md-offset-1 weather-square">Temperature:
+    <div id="temp"></div>
+    <button id="convert" class="btn btn-primary">Convert</button>
+  </div>
+  <div id="condition-square" class="col-md-3 col-md-offset-1 weather-square"><div id="icon">Condition:<br>
+    <i class="fa"></i></div>
+    <div id="condition"></div>
+  </div>
+
+</div>
+<div id="credit">by <a href="http://marcdwong.com">marc d. wong</a></div>
+<div class="cloud cloud-small" style="top:50px;"><i class="fa fa-cloud"></i></div>
+<div class="cloud cloud-mid" style="top:40%;"><i class="fa fa-cloud fa-2x"></i></div>
+<div class="cloud cloud-big" style="top:65%;"><i class="fa fa-cloud fa-3x"></i></div>
+
+</div>
+
+
+<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<script src="js/local-weather.js"></script>
+
+</body>
+</html>

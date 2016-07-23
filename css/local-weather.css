@@ -1,0 +1,154 @@
+body {
+  background-color:#00B2E6;
+  font-family: 'Catamaran', serif;
+  font-weight:500;
+}
+
+#squares {
+  text-align:center;
+}
+
+.weather-square {
+  background-color:white;
+ background:rgba(255,255,255,0.15);
+  height:250px;
+  margin-top:80px;
+  color:white;
+  font-size:24px;
+  padding-top:20px;
+  padding-top:50px;
+  border-bottom:5px solid #ff3030;
+
+}
+.weather-square:nth-child(1),
+.weather-square:nth-child(3) {
+  margin-top:60px;
+}
+
+#credit {
+  text-align:center;
+  color:white;
+  margin-top:10px;
+}
+
+#header-text {
+  text-align:center;
+  font-size:36px;
+  margin:10px;
+  color:white;
+}
+
+
+#latitude,
+#longitude {
+  display:inline-block;
+}
+
+#convert {
+  margin-top:10px;
+}
+
+#convert:focus {
+  outline:0;
+}
+
+#credit a,
+#credit a:hover {
+  color:white;
+  text-decoration:none
+}
+
+#location-square {
+  position:relative;
+  border-bottom:none;
+  border-radius:0 10px 0 0;
+  padding-top:30px;
+}
+
+#temp-square {
+  border-radius: 10px 10px 0 0;
+}
+
+#condition-square {
+  border-radius:10px 0 0 0;
+}
+
+#first-stripe,
+#second-stripe,
+#third-stripe{
+  width:33.33%;
+  width: calc(100%/3);
+  height:5px;
+  position:absolute;
+  bottom:0px;
+  left:0;
+  display:inline-block;
+  background-color:white;
+}
+#first-stripe{
+  background-color:#ff3030;
+}
+#second-stripe {
+  left:33%;
+  width:34%;
+}
+#third-stripe {
+  left:67%;
+  background-color:blue;
+}
+
+
+
+  @keyframes pulse-blue {
+    0% {border-bottom-color:rgba(0,0,255,1);}
+    100% {border-bottom-color:rgba(0,0,255,0.25);}
+  }
+
+  @keyframes pulse-teal {
+    0% {border-bottom-color:rgba(175,238,238,1);}
+    100% {border-bottom-color:rgba(175,238,238,0.25);}
+  }
+
+  @keyframes pulse-yellow {
+    0% {border-bottom-color:rgba(255,255,0,1);}
+    100% {border-bottom-color:rgba(255,255,0,0.25);}
+  }
+
+  @keyframes pulse-orange {
+    0% {border-bottom-color:rgba(255,165,0,1);}
+    100% {border-bottom-color:rgba(255,165,0,0.25);}
+  }
+
+  @keyframes pulse-red {
+    0% {border-bottom-color:rgba(255,48,48,1);}
+    100% {border-bottom-color:rgba(255,48,48,0.25);}
+  }
+
+
+@keyframes cloud {
+  0% {left:105%;}
+  100% {left:-15%;}
+}
+
+.cloud {
+  position:fixed;
+  left:-200px;
+  color:white;
+  opacity:0.5;
+  z-index:-5;
+}
+
+.cloud-small {
+  animation:cloud 65s linear 2s infinite;
+  font-size:20px;
+}
+
+.cloud-mid {
+  animation:cloud 55s linear 15s infinite;
+  font-size:40px;
+}
+
+.cloud-big {
+  animation:cloud 30s linear 0s infinite;
+  font-size:60px;
+}
