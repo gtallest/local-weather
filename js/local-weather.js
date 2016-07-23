@@ -3,9 +3,12 @@ $(document).ready(function(){
 var latitude;
 var longitude;
 var storedWeatherJSON;
-$.getJSON('http://ip-api.com/json?callback=?',function(json){
-  latitude = json.lat;
-  longitude = json.lon;
+//$.getJSON('https://ip-api.com/json?callback=?',function(json){
+//  latitude = json.lat;
+//  longitude = json.lon;
+
+latitude = "33.665242";
+longitude = "-117.74906560000001";
 
 
   //JSON Weather API Call
@@ -86,7 +89,7 @@ $.getJSON('http://api.openweathermap.org/data/2.5/weather?lat=' + latitude + '&l
 });
 
 
-});
+//});
 
 
 
