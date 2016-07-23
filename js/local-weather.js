@@ -3,7 +3,7 @@ $(document).ready(function(){
 var latitude;
 var longitude;
 var storedWeatherJSON;
-$.getJSON('http://ip-api.com/json',function(json){
+$.getJSON('http://ip-api.com/json?callback=?',function(json){
   latitude = json.lat;
   longitude = json.lon;
 
