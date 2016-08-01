@@ -3,12 +3,9 @@ $(document).ready(function(){
 var latitude;
 var longitude;
 var storedWeatherJSON;
-//$.getJSON('https://ip-api.com/json?callback=?',function(json){
-//  latitude = json.lat;
-//  longitude = json.lon;
-
-latitude = "33.665242";
-longitude = "-117.74906560000001";
+$.getJSON('http://ip-api.com/json',function(json){
+  latitude = json.lat;
+  longitude = json.lon;
 
 
   //JSON Weather API Call
@@ -89,10 +86,10 @@ $.getJSON('http://api.openweathermap.org/data/2.5/weather?lat=' + latitude + '&l
 });
 
 
-//});
+});
 
 
-
+//TESTING
 //var storedWeatherJSON = {"coord":{"lon":-117.82,"lat":33.67},"weather":[{"id":800,"main":"Rain","description":"clear sky","icon":"01n"}],"base":"cmc stations","main":{"temp":80.78,"pressure":1017,"humidity":62,"temp_min":55,"temp_max":63},"wind":{"speed":2.3,"deg":189.5},"rain":{},"clouds":{"all":0},"dt":1466054995,"sys":{"type":3,"id":9110,"message":0.0049,"country":"Japan","sunrise":1466080838,"sunset":1466132629},"id":5359777,"name":"Irvine","cod":200};
 
 
