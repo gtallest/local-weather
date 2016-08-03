@@ -2,6 +2,53 @@ body {
   background-color:#00B2E6;
   font-family: 'Catamaran', serif;
   font-weight:500;
+  color:white;
+}
+
+#info-button {
+  position:fixed;
+  left:10px;
+  top: 10px;
+  border-radius:100%;
+  background:#ff3030;
+  width:35px;
+  height:35px;
+  text-align:center;
+  padding-top:8px;
+  cursor:pointer;
+  box-shadow: 2px 2px 2px rgba(0,0,0,0.3);
+  transition:1s;
+  z-index:1;
+}
+#info-button:hover {
+/*  transform: rotate(360deg);*/
+  transition:1s;
+  background:#d9534f;
+}
+
+#project-description {
+  position: fixed;
+  display: block;
+  width: 60%;
+  min-height: 300px;
+  margin: 0 auto;
+  background: #ff3030;
+  top: -465px;
+  left: 50%;
+  text-align: center;
+  transition: 2s;
+  transform: translate(-50%, 0);
+  z-index: 1;
+  border-radius: 0 0 20px 20px;
+  box-shadow:0px 10px 10px rgba(0,0,0,0.3);
+  padding:10px 30px;
+  border-bottom:3px solid #c9302c;
+  border-right:1px solid #c9302c;
+}
+#project-description ul,
+#project-description > p:nth-of-type(3),
+#project-description > p:nth-of-type(5) {
+  text-align:left;
 }
 
 #squares {
@@ -151,4 +198,36 @@ body {
 .cloud-big {
   animation:cloud 30s linear 0s infinite;
   font-size:60px;
+}
+
+
+/*Responsive*/
+@media only screen and (max-width:1100px) {
+  #project-description {
+    top:-500px;
+    width:70%;
+  }
+}
+@media only screen and (max-width:717px) {
+  #project-description {
+    top:-550px;
+  }
+}
+@media only screen and (max-width:623px) {
+  #project-description {
+    top:-600px;
+    width:80%;
+  }
+}
+@media only screen and (max-width:439px) {
+  #project-description {
+    top:-700px;
+    width:80%;
+  }
+}
+@media only screen and (max-width:340px) {
+  #project-description {
+    top:-750px;
+    width:80%;
+  }
 }

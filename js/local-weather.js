@@ -103,4 +103,25 @@ $("#convert").on("click",function(){
 });
 
 
+
+//Logic for the info button and project description.
+//Keep track of initialTop and currentTop for responsive design.
+//$('#project-description').css('top') will vary depending on screen size.
+var initialTop = $('#project-description').css('top').split("p")[0];
+var currentTop = $('#project-description').css('top').split("p")[0];
+$('#info-button').on('click',function(){
+  if(currentTop <= -365){
+    $('#project-description').css('top','0');
+    currentTop = 0;
+    $('#info-button').css({'background':'white','color':'#d9534f','transform':'rotate(90deg)'});
+  }
+  else {
+    $('#project-description').css('top',initialTop + 'px');
+    currentTop = initialTop;
+    $('#info-button').css({'background':'#ff3030','color':'white','transform':'rotate(0deg)'});
+    $('#info-button:hover').css('background','#7f52d2;')
+  }
+});
+
+
 });
