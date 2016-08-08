@@ -3,22 +3,22 @@ $(document).ready(function(){
 var latitude;
 var longitude;
 var storedWeatherJSON;
+//Get the latitude and longitude coordinates of the user's current location
 $.getJSON('http://ip-api.com/json',function(json){
   latitude = json.lat;
   longitude = json.lon;
-
 
   //JSON Weather API Call
 $.getJSON('http://api.openweathermap.org/data/2.5/weather?lat=' + latitude + '&lon=' + longitude + '&units=imperial&APPID=7bf2bdf1357d9e6e810efd65dd1a4af9',function(json){
   storedWeatherJSON = json;
 
+  //Update Elements on Page with Corresponding Values
   $("#city").html(storedWeatherJSON.name + ", " + storedWeatherJSON.sys.country);
-//  $("#latitude").html("(" + storedWeatherJSON.coord.lat + ",");
-  //$("#longitude").html(storedWeatherJSON.coord.lon+ ")");
-    $("#latitude").html('<iframe src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d13284.225132897795!2d' + longitude + '!3d' + latitude + '!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sus!4v1466205428997" style="width:100%;height:120px;" frameborder="0" style="border:0" allowfullscreen></iframe>');
+  $("#latitude").html('<iframe src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d13284.225132897795!2d' + longitude + '!3d' + latitude + '!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sus!4v1466205428997" style="width:100%;height:120px;" frameborder="0" style="border:0" allowfullscreen></iframe>');
   $("#temp").html(Math.round(storedWeatherJSON.main.temp) + "&deg;F");
   $("#condition").html(storedWeatherJSON.weather[0].main);
 
+  //Set the Bottom Border Color of the Temperature Square depending on the Actual Temperature Value
   var temp = Math.round(storedWeatherJSON.main.temp);
   if(temp < 60) {
     $("#temp-square").css({'border-bottom-color':'blue','animation':'pulse-blue 1.5s ease-in-out 1s infinite alternate'});
@@ -36,6 +36,8 @@ $.getJSON('http://api.openweathermap.org/data/2.5/weather?lat=' + latitude + '&l
     $("#temp-square").css({'border-bottom-color':'#ff3030','animation':'pulse-red 1.5s ease-in-out 1s infinite alternate'});
   }
 
+  //Set the Bottom Border Color of the Location Square depending on the Country of the User
+  //Currently only Japan is included
   switch(storedWeatherJSON.sys.country){
     case "Japan":
     $("#first-stripe").css('background-color','white');
@@ -45,6 +47,7 @@ $.getJSON('http://api.openweathermap.org/data/2.5/weather?lat=' + latitude + '&l
     default:
   }
 
+  //Set the Content of the Condition Square depending on the Actual Conditions
   switch(storedWeatherJSON.weather[0].main) {
     case "Clear":
     $("#icon i").addClass("fa-sun-o fa-2x");
@@ -88,11 +91,7 @@ $.getJSON('http://api.openweathermap.org/data/2.5/weather?lat=' + latitude + '&l
 
 });
 
-
-//TESTING
-//var storedWeatherJSON = {"coord":{"lon":-117.82,"lat":33.67},"weather":[{"id":800,"main":"Rain","description":"clear sky","icon":"01n"}],"base":"cmc stations","main":{"temp":80.78,"pressure":1017,"humidity":62,"temp_min":55,"temp_max":63},"wind":{"speed":2.3,"deg":189.5},"rain":{},"clouds":{"all":0},"dt":1466054995,"sys":{"type":3,"id":9110,"message":0.0049,"country":"Japan","sunrise":1466080838,"sunset":1466132629},"id":5359777,"name":"Irvine","cod":200};
-
-
+//Logic for the Farenheight/Celsius Convert Button
 $("#convert").on("click",function(){
   if($("#temp").html().indexOf("F") !== -1){
     $("#temp").html((Math.round((storedWeatherJSON.main.temp - 32)/1.8)) + "&deg;C");
@@ -101,8 +100,6 @@ $("#convert").on("click",function(){
     $("#temp").html(Math.round(storedWeatherJSON.main.temp) + "&deg;F");
   }
 });
-
-
 
 //Logic for the info button and project description.
 //Keep track of initialTop and currentTop for responsive design.
@@ -122,6 +119,10 @@ $('#info-button').on('click',function(){
     $('#info-button:hover').css('background','#7f52d2;')
   }
 });
+
+
+//TESTING
+//var storedWeatherJSON = {"coord":{"lon":-117.82,"lat":33.67},"weather":[{"id":800,"main":"Rain","description":"clear sky","icon":"01n"}],"base":"cmc stations","main":{"temp":80.78,"pressure":1017,"humidity":62,"temp_min":55,"temp_max":63},"wind":{"speed":2.3,"deg":189.5},"rain":{},"clouds":{"all":0},"dt":1466054995,"sys":{"type":3,"id":9110,"message":0.0049,"country":"Japan","sunrise":1466080838,"sunset":1466132629},"id":5359777,"name":"Irvine","cod":200};
 
 
 });
